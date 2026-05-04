@@ -1,9 +1,9 @@
-    <aside class="w-72 bg-white h-screen sticky top-0 border-r border-slate-200 flex flex-col px-4 py-6 overflow-y-auto">
+<aside class="w-72 bg-white h-screen sticky top-0 border-r border-slate-200 flex flex-col px-4 py-6 overflow-y-auto">
         
         <div class="flex items-center justify-between mb-8 px-2">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">D</div>
-		<span class="font-semibold text-lg text-slate-800"><?= $store['store_name'] ?></span>
+		<span class="font-semibold text-lg text-slate-800"></span>
             </div>
             <button class="text-slate-400 hover:text-slate-600">
                 <i class="fa-solid fa-indent rotate-180"></i>
@@ -35,7 +35,7 @@
                     </button>
                     <div class="hidden ml-11 mt-1 space-y-1 relative border-l border-slate-100">
                         <a href="products.php" class="block px-3 py-2 text-sm text-slate-500 hover:text-blue-600 transition-colors">Daftar Produk</a>
-                        <a href="#" class="block px-3 py-2 text-sm text-slate-500 hover:text-blue-600 transition-colors">Tambah Produk</a>
+                        <a href="create_product.php" class="block px-3 py-2 text-sm text-slate-500 hover:text-blue-600 transition-colors">Tambah Produk</a>
                         <a href="#" class="block px-3 py-2 text-sm text-slate-500 hover:text-blue-600 transition-colors">Kategori Produk</a>
                         <a href="#" class="block px-3 py-2 text-sm text-slate-500 hover:text-blue-600 transition-colors">Stok & Inventori</a>
                     </div>

@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $user = "root";
-$pass = "$!13n7";
+$pass = "";
 $db   = "marketplace";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
