@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2026 at 06:29 AM
+-- Generation Time: May 07, 2026 at 08:35 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -101,6 +101,31 @@ CREATE TABLE `order_items` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `expires_at` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`id`, `user_id`, `token`, `expires_at`, `created_at`) VALUES
+(5, 4, 'de9db7d7d27de195a883361182db5ec80025d66ee668058eb5c55d68280d9168', '2026-05-04 09:47:53', '2026-05-04 06:47:53'),
+(6, 4, '6a8f9e02636aee9e2e024326c7c61b26273cec2bbd53e52eadccfc0f4c622df7', '2026-05-04 09:49:26', '2026-05-04 06:49:26'),
+(7, 4, '45da9bab6c796f8e367a9ebe67862f7cbb5b0b0d741b921540ae7eec469e436f', '2026-05-04 09:50:05', '2026-05-04 06:50:05'),
+(8, 4, '10f5315bde2f7d9684d4ea3caa811bd8dff17d0ed7fce60ea618eba3b3bdd70f', '2026-05-04 09:50:22', '2026-05-04 06:50:22'),
+(9, 4, '4a9f980ba47dfa34bd918bc4cdb2746358f6f6d20898c91dcd3ba8180a2dd344', '2026-05-04 09:54:27', '2026-05-04 06:54:27');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payments`
 --
 
@@ -128,6 +153,13 @@ CREATE TABLE `products` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `store_id`, `name`, `description`, `price`, `stock`, `created_at`) VALUES
+(4, 1, 'Coop Design - Elyas Sorban Tenun Premium Syal Muslim Pria Surban Arab Habib Motif Garis Bintik Santri Palestina - Brown', '', 50000.00, 9, '2026-05-04 06:21:36');
+
 -- --------------------------------------------------------
 
 --
@@ -150,6 +182,13 @@ CREATE TABLE `product_images` (
   `product_id` int(11) NOT NULL,
   `image_url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product_images`
+--
+
+INSERT INTO `product_images` (`id`, `product_id`, `image_url`) VALUES
+(4, 4, '69f83af02d345.jpg');
 
 -- --------------------------------------------------------
 
@@ -224,7 +263,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
 (1, 'admin', 'admin@gmail.com', '$2y$10$gyTct2J07FgWSVorD1PVJeJmB9GTajEA4D4JIysdXloWiOS7FEb/C', 'admin', '2026-04-30 01:33:28'),
 (2, 'seller', 'seller@gmail.com', '$2y$10$M3dGzV9k9gtuMv87dF3KBeldVjb1GYapcFKstfks1ssoz/WXnVszC', 'seller', '2026-04-30 03:56:19'),
-(3, 'user', 'user@gmail.com', '$2y$10$/J0kAX0udf42ReMnhZoUb.nSjVd.QakHyXiStUh6vi8Awaqkc.Mji', 'buyer', '2026-04-30 04:01:13');
+(3, 'user', 'user@gmail.com', '$2y$10$/J0kAX0udf42ReMnhZoUb.nSjVd.QakHyXiStUh6vi8Awaqkc.Mji', 'buyer', '2026-04-30 04:01:13'),
+(4, 'Muhammad Nur Alam', 'muhammadnuralam.personal@gmail.com', '$2y$10$lLRO3U9oIsgKiobTTqSoouAZnvqmghr9todz8//IkB9WHXmNtHI.K', 'buyer', '2026-05-04 06:36:26'),
+(5, 'buyyer', 'buyyer1@gmail.com', '$2y$10$OoLh.feSC7/53SvGRboDtuvTZkKEeJddjlsV9bBe9fcWKdHWnnfC6', 'buyer', '2026-05-07 03:50:51');
 
 -- --------------------------------------------------------
 
@@ -284,6 +325,12 @@ ALTER TABLE `order_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`),
   ADD KEY `idx_order_items_order_id` (`order_id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `payments`
@@ -392,6 +439,12 @@ ALTER TABLE `order_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
@@ -401,13 +454,13 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -431,7 +484,7 @@ ALTER TABLE `stores`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `wishlists`

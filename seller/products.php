@@ -8,8 +8,9 @@ requireRole(['seller']);
 $user_id = $_SESSION['user_id'];
 
 // Ambil data toko
-$store_query = mysqli_query($conn, "SELECT id FROM stores WHERE user_id = $user_id");
-$store = mysqli_fetch_assoc($store_query);
+$store = mysqli_fetch_assoc(mysqli_query($conn, "
+SELECT id, store_name FROM stores WHERE user_id = $user_id
+"));
 
 if (!$store) {
     header("Location: create_store.php");

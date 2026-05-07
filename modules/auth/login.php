@@ -23,7 +23,7 @@ if ($user && password_verify($password, $user['password'])) {
     } elseif ($user['role'] == 'seller') {
         header("Location: ../../seller/index.php");
     } else {
-        header("Location: ../../index.php");
+        header("Location: ../../buyyer/index.php");
     }
 
     exit;

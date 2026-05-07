@@ -2,8 +2,8 @@
         
         <div class="flex items-center justify-between mb-8 px-2">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">D</div>
-		<span class="font-semibold text-lg text-slate-800"></span>
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm"></div>
+		<span class="font-semibold text-lg text-slate-800"><?= $store['store_name'] ?></span>
             </div>
             <button class="text-slate-400 hover:text-slate-600">
                 <i class="fa-solid fa-indent rotate-180"></i>
@@ -90,7 +90,7 @@
                     <i class="fa-solid fa-user-gear text-lg group-hover:text-blue-600"></i>
                     <span>Pengaturan Akun</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 rounded-lg transition-colors mt-4">
+                <a href="../modules/auth/logout.php" class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 rounded-lg transition-colors mt-4">
                     <i class="fa-solid fa-arrow-right-from-bracket text-lg"></i>
                     <span>Logout</span>
                 </a>

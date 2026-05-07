@@ -1,9 +1,21 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require "../helpers/auth.php";
 require "../config/database.php";
 
 checkLogin();
 requireRole(['seller']);
+
+$user_id = $_SESSION['user_id'];
+
+$store = mysqli_fetch_assoc(mysqli_query($conn, "
+SELECT id, store_name FROM stores WHERE user_id = $user_id
+"));
+
+$store_id = $store['id'];
+
 ?>
 
 <!DOCTYPE html>
